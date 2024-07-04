@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>     <!--sayfanın başlık,stil gibi bilgileri --> 
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>A First App</title>
+    <link rel="stylesheet" href="styles.css" /> <!--harici css dosyasını bağlar-->
+  </head>
+  <body> <!--sayfanın içeriğini içerir-->
+    <div id="app"> <!--Vue.js uygulaması, HTML sayfasına bağlanmak için bir bağlantı noktasına(#app id sine sahip div e) ihtiyaç duyar.-->
+      <div>
+        <label for="goal">Goal</label> <!--input alanı için etiket-->
+        <input type="text" id="goal" v-model="enteredValue"/> <!--Kullanıcıdan text inputu alır ve enteredValue adlı Vue veri modeline bağlar-->
+        <button v-on:click="addGoal">Add Goal</button> <!--Butona tıklanınca addGoal adlı Vue yöntemini çalıştırır-->
+      </div>
+      <ul> <!--sıra numarasız liste yaratır-->
+        <li v-for="goal in goals" >{{ goal }}</li> <!--goals adlı veri modelindeki her öğe için bir liste elemanı oluşturur ve goal değerini gösterir.-->
+       
+      </ul>
+    </div>
+    <script src="https://unpkg.com/vue@3.4.9/dist/vue.global.js" ></script>
+    <script src="app.js"></script>
+  </body>
+</html>

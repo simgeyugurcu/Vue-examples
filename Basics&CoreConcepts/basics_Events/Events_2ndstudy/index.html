@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue Basics</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://unpkg.com/vue@3.4.9/dist/vue.global.js" ></script>
+    <script src="basic.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <h1>Vue Events</h1>
+    </header>
+    <section id="events">
+      <h2>Events in Action</h2>
+      <!--<input type="text" v-bind:value="name" v-on:input="setName($event, 'Schwarzmüller')">      bu satırı aşağıdaki gibi yazabiliriz-->
+      <input type="text" v-model="name">  <!--input alanı ile name değişkenini iki yönlü bağlar. Kullanıcı input alanına yazdığında name değişkeni otomatik olarak güncellenir-->
+      <input type="text" v-model="lastName"> 
+      <button @click="resetInput()">Reset Input</button>
+      <p>Your Name: {{ fullname }}</p>
+      <button v-on:click="add(10)">Add 10</button>  <!--v-on:click yazmak yerine kısaltma olarak @click yazabiliriz. Yani v-on yerine @ kullanılabilir-->
+                                                    <!--Aynı şekilde v-bind:value=""   yerine de :value="" yazabiliriz.Yani v-bind yazılmayabilir.-->
+      <button @click="reduce(5)">Subtract 5</button>
+      <p>Result: {{ counter }}</p>
+      
+    </section>
+  </body>
+</html>
