@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Form Homework</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://unpkg.com/vue@3.4.9/dist/vue.global.js"></script>
+    <script src="app.js" defer></script>
+</head>
+<body>
+    <div id="app">
+        <header>
+            <h2 class="logo">LOGO</h2>
+            <nav class="navigation">
+                <a href="#">WORK</a>
+                <a href="#">DASHBOARD</a>
+                <a href="#">ABOUT</a>
+                <a href="#">CONTACT</a>
+                <button class="login-popup" 
+                    @click="toggleUserDetails" 
+                    :class="{ 'logged-in': loggedInUsername }"><!--Apply class based on login status-->
+                    <i class='bx bxs-user'></i>
+                    LOGIN
+                </button>
+                <div v-if="showUserDetails" class="user-details"> <!-- Conditionally show user details -->
+                    <p>User: {{ loggedInUsername }}</p>
+                </div>
+            </nav>
+        </header>
+        <div class="wrapper" v-if="showLoginPopup"> <!-- Conditionally show login popup -->
+            <span class="icon-close" @click="closeLoginForm"><i class='bx bx-x'></i></span>
+            <form @submit.prevent="login"> <!-- Prevent default form submission -->
+                <h1>LOG IN</h1>
+                <div class="input-box">
+                    <i class='bx bx-user'></i>
+                    <input type="text" placeholder="Username" v-model="username"> <!-- Bind input to username -->
+                </div>
+                <div class="input-box">
+                    <i class='bx bx-lock'></i>
+                    <input type="password" placeholder="Password" v-model="password"> <!-- Bind input to password -->
+                </div>
+                <button type="submit" class="btn">LOG IN</button>
+                <div class="register-link">
+                    <p>No account yet? <a href="#">Sign up</a></p>
+                </div>
+                <div class="forgotpass">
+                    <p><a href="#">Forgot password?</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,170 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 99;
+}
+
+.logo {
+    font-size: 1.8em;
+    color: #fff;
+    user-select: none;
+}
+
+.navigation a {
+    position: relative;
+    font-size: 1.1em;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 40px;
+}
+
+.navigation .login-popup {
+    width: 130px;
+    height: 50px;
+    background: transparent;
+    border: 2px solid transparent;
+    outline: none;
+    cursor: pointer;
+    font-size: 1.1em;
+    color: #ffffff14;
+    font-weight: 500;
+    margin-left: 400px;
+    transition: color 0.3s;
+}
+/* login-popup color after user is logged in */
+.login-popup.logged-in {
+    color: #ffffff;
+}
+
+.login-popup i { /* Icon inside the login popup button */
+    color: inherit;
+    margin-right: 8px;
+    font-size: 20px;
+}
+
+.user-details {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(to right, #016176, #10c3a5);
+}
+/* Login form wrapper */
+.wrapper {
+    width: 420px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    padding: 30px 40px;
+    backdrop-filter: blur(10px);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+/* Login form title */
+.wrapper h1 {
+    font-size: 28px;
+    text-align: center;
+}
+
+.wrapper .input-box {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin: 30px 0;
+}
+
+.wrapper .icon-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 45px;
+    height: 45px;
+    font-size: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.input-box input {
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    border: none;
+    outline: none;
+    border: 2px solid rgba(255, 255, 255, .2);
+    font-size: 16px;
+    color: #3c3b3b;
+    padding: 20px 20px 20px 45px;
+}
+
+.input-box input::placeholder {
+    color: #3c3b3b;
+}
+
+.input-box i {
+    position: absolute;
+    color: #3c3b3b;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+}
+
+.register-link, .forgotpass {
+    text-align: center;
+    margin-top: 10px;
+}
+/* Links inside the register and forgot password sections */
+.register-link a, .forgotpass a {
+    color: #645ed2;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.register-link a:hover, .forgotpass a:hover {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.wrapper .btn {
+    width: 100%;
+    height: 40px;
+    background: #10c3a5;
+    border: none;
+    outline: none;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+    cursor: pointer;
+    font-size: 16px;
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.register-link p a:hover, .forgotpass p a:hover {
+    text-decoration: underline;
+}
