@@ -1,3 +1,5 @@
+<!--my vue tutorial:    https://docs.google.com/document/d/1JdDIYBqPdOHyZBXmx6gOdH5PFzTDPC3MWgyEjITv3GQ/edit-->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,11 +20,9 @@
                 <a href="#">DASHBOARD</a>
                 <a href="#">ABOUT</a>
                 <a href="#">CONTACT</a>
-                <button class="login-popup" 
-                    @click="toggleUserDetails" 
-                    :class="{ 'logged-in': loggedInUsername }"><!--Apply class based on login status-->
+                <button class="login-popup" :class="{ 'logged-in': loggedInUsername }">
                     <i class='bx bxs-user'></i>
-                    LOGIN
+                    {{ loggedInUsername ? loggedInUsername : 'LOGIN' }}
                 </button>
                 <div v-if="showUserDetails" class="user-details"> <!-- Conditionally show user details -->
                     <p>User: {{ loggedInUsername }}</p>
@@ -43,7 +43,7 @@
                 </div>
                 <button type="submit" class="btn">LOG IN</button>
                 <div class="register-link">
-                    <p>No account yet? <a href="#">Sign up</a></p>
+                    showUserDetails   <p>No account yet? <a href="#">Sign up</a></p>
                 </div>
                 <div class="forgotpass">
                     <p><a href="#">Forgot password?</a></p>
