@@ -1,0 +1,49 @@
+form {
+    border: dashed black 1px;
+    width: 300px;
+    padding: 20px;
+    float: left; 
+    margin-right: 20px; 
+}
+body {
+    background: linear-gradient(to left, #f2ede6, #e2d9ea, #e0c1e1);}
+
+.book-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.book-item img {
+    width: 50px;
+    height: 75px;
+    margin-right: 10px;
+}
+.book-item button {
+    margin-left: 10px; 
+}
+
+#app {
+    display: flex;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 10px;
+}
+.book-input {
+    background-color: beige;
+    color: #2b2a2a;
+    padding: 5px;
+    border: 1px solid #ccc;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+.book-input::placeholder {
+    color: #2b2a2a;
+}
