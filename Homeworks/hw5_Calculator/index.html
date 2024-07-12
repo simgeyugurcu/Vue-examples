@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator Homework</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+    <script src="https://unpkg.com/vue@3.4.9/dist/vue.global.js"></script>
+    <script src="app.js" defer></script>
+</head>
+<body>
+    <div id="app" class="calculator">
+        <input type="text" placeholder="0" v-model="display">
+        <div class="buttons">
+            <button class="function" @click="clear">AC</button>
+            <button class="function" @click="negate">+/-</button>
+            <button class="function" @click="percentage">%</button>
+            <button class="operator" @click="setOperator('÷')">÷</button>
+            <button @click="setNumber('7')">7</button>
+            <button @click="setNumber('8')">8</button>
+            <button @click="setNumber('9')">9</button>
+            <button class="operator" @click="setOperator('×')">×</button>
+            <button @click="setNumber('4')">4</button>
+            <button @click="setNumber('5')">5</button>
+            <button @click="setNumber('6')">6</button>
+            <button class="operator" @click="setOperator('-')">-</button>
+            <button @click="setNumber('1')">1</button>
+            <button @click="setNumber('2')">2</button>
+            <button @click="setNumber('3')">3</button>
+            <button class="operator" @click="setOperator('+')">+</button>
+            <button class="zero" @click="setNumber('0')">0</button>
+            <button @click="setNumber('.')">.</button>
+            <button class="operator" @click="calculateResult">=</button>
+        </div>
+    </div>
+</body>
+</html>
