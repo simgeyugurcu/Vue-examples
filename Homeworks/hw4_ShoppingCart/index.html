@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart Homework</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+    <script src="https://unpkg.com/vue@3.4.9/dist/vue.global.js"></script>
+    <script src="app.js" defer></script>
+</head>
+<body>
+  <div class="container">
+    <div class="left-side">
+      <div id="app">
+        <h1>Shopping Cart</h1>
+        <div class="cart">
+            <div class="cart-item" v-for="item in cartItems" :key="item.id">
+                <img :src="item.image" alt="Product image">
+                <div class="details">
+                    <div>
+                        <h3>{{ item.name }}</h3>
+                        <p>{{ item.price.toLocaleString('tr-TR', { style: 'currency', currency: 'TRY' }) }}</p>
+                    </div>
+                    <div class="quantity">
+                        <button @click="decreaseQuantity(item)">-</button>
+                        <span>{{ item.quantity }}</span>
+                        <button @click="increaseQuantity(item)">+</button>
+                    </div>
+                </div>
+                <span class="material-symbols-outlined remove-icon" @click="removeItem(item)">delete</span>
+                <div class="total">Total: {{ (item.price * item.quantity).toLocaleString('tr-TR', { style: 'currency', currency: 'TRY' }) }}</div>
+
+            </div>
+        </div>
+        <div class="summary">
+          <h3>Order Summary</h3>
+          <p>Items: {{ totalItems }}</p>
+          <p>Total: {{ totalPrice | currency }}</p>
+          <p>Discounted Price (10%): {{ discountedPrice | currency }}</p>
+          <button class="buy-button">Buy Now</button>
+        </div>
+      </div>
+    <!--</div>
+    <div class="right-side"></div>
+  </div>-->
+</body>
+</html>

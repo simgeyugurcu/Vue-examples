@@ -1,0 +1,82 @@
+body {
+    background: linear-gradient(135deg, #c3a9e8, #94b9ff);
+    display: flex; /* body elementi, flex konteyner olarak kullanılmaktadır.
+    Yani body elementi, içindeki diğer elemanları (wrapper, h1, form gibi) 
+    esnek bir düzende düzenlemek için display: flex; özelliği ile kullanılmaktadır. */
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* sayfa boyunca dikey bir kaydırma olmaksızın sayfanın tamamının ekrana sığması için*/
+    margin: 0; /* Sayfa kenar boşluklarını kaldırır. */
+    font-family: Arial, sans-serif; 
+}
+
+/* Form ve içeriği çevreleyen wrapper için stil ayarları. */
+.wrapper {
+    background: rgba(255, 255, 255, 0.385); 
+    padding: 40px; /* İçeriği saran dolgu alanı. */
+    border-radius: 15px; /* Kenar yumuşatma */
+    box-shadow: 0 0px 20px #4a69bd79; 
+    width: 350px; 
+    text-align: center; /* text i(burada LOG IN yazısı) merkeze hizalar. */
+}
+
+/* Başlık için stil ayarları */
+h1 {
+    color: #4a69bd;
+    margin-bottom: 30px; /* Alt boşluk ekler. */
+    font-size: 28px; 
+}
+
+/* input-box stil ayarları */
+.input-box {
+    position: relative; /* position: relative;: Bu kural, elementin normal yerleşim akışında 
+    kaldığı yeri korurken, top, right, bottom ve left gibi diğer pozisyon özellikleriyle (bu 
+    özellikler belirli değerler alabilir) kaydırılmasını sağlar.  */
+    width: 85%; 
+    margin-bottom: 20px; /* Alt boşluk ekler. */
+}
+
+/* input box iconları için stil ayarları */
+.input-box i {
+    color: #4a69bd;
+    position: absolute; /* position: absolute;: Bu kural, elementi normal belge 
+    akışından çıkarır ve onu en yakın "pozisyon veren" üst öğeye göre konumlandırır. */
+    top: 50%; /* Üstten konumunu ayarlar. */
+    left: 10px; /* Soldan konumunu ayarlar. */
+    transform: translateY(-50%); /* Dikey hizalamayı ayarlar. 
+    Bu özellik, elementi kendi boyutunun yüzde -50'si kadar dikey olarak hareket ettirir.*/
+    font-size: 20px; /* İkon boyutunu belirler. */
+}
+
+/* input alanı için stil ayarları */
+.input-box input {
+    background-color: #c3a9e89c; 
+    width: 100%; 
+    padding: 12px 12px 12px 40px; /* İç dolgu alanı ayarlar. */
+    border: 1px solid #4a69bd; 
+    border-radius: 8px; 
+    font-size: 16px; 
+}
+/* Login butonu için stil ayarları */
+.btn {
+    background: #4a69bd05; 
+    color: #4a69bd; 
+    border: 1px solid #4a69bd; 
+    padding: 12px 50px; /* İç dolgu alanı */
+    border-radius: 10px; 
+    cursor: pointer; /* Fare üzerine gelince işaretçi tipi (default olanı ok işareti şeklindeki, pointer olanı parmakla işaret ediyor gibi) */
+    box-shadow: 0 0 20px #4a69bda0; 
+    margin-top: 20px; /* Üst boşluk ekler */
+}
+
+/* Error mesajları için stil ayarları */
+.error {
+    color: rgba(255, 0, 0, 0.684); 
+    margin-top: 10px; /* Üst boşluk ekler */
+}
+
+/* Welcome  mesajı için stil ayarları */
+.welcome {
+    color: #4a69bd; 
+    text-align: center; /* text i merkeze hizalar */
+}

@@ -1,0 +1,131 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+}
+
+.container {
+    display: flex;
+}
+
+.left-side {
+    width: 100%; 
+    padding: 27px;
+    background-color: #cbc9bb5b;
+}
+
+/*.right-side {
+    width: 40%; 
+    padding: 20px;
+    background-image: url('https://images.unsplash.com/photo-1550989460-0adf9ea622e2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Z3JvY2VyeSUyMHN0b3JlfGVufDB8MXwwfHx8MA%3D%3D');
+    opacity: 0.8; 
+    filter: blur(1px); 
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: right top;
+    box-shadow: 0 0 45px rgba(0, 0, 0, 0.614);
+}
+*/
+h1 {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.cart {
+    margin-bottom: 20px;
+}
+
+.cart-item {
+    display: flex;
+    align-items: flex-start;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    position: relative; 
+}
+
+.cart-item img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin-right: 20px;
+    margin-top: 0px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.577);
+
+}
+
+
+.details {
+    flex: 1;
+}
+
+.details h3 {
+    margin: 0 0 5px 0;
+}
+
+.quantity {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Butonları ve miktarı ortalamak için */
+    margin-top: -35px;
+    margin-left: 250px; 
+    width: 150px; 
+}
+
+.quantity button {
+    width: 30px;
+    height: 30px;
+    background-color: #43424241;
+    border: none;
+    cursor: pointer;
+    margin-left: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.577);
+
+}
+
+.quantity span {
+    display: inline-block;
+    width: 30px;
+    text-align: center;
+    margin-left: 10px;
+}
+
+.remove-icon {
+    position: absolute;
+    top: 10px;
+    left: 900px;
+    cursor: pointer;
+    font-size: 24px;
+    color: #ff0000;
+    text-shadow: 0 0 10px rgba(211, 25, 25, 0.577);
+
+}
+
+.summary {
+    padding: 20px;
+    border: 1px solid #ddd;
+}
+
+.summary h3 {
+    margin: 0 0 20px 0;
+}
+
+
+.total{
+    position: absolute;
+    top: 80px;
+    right: 545px;
+
+}
+
+.buy-button {
+    background-color: #27c14d9e;
+    color: rgb(0, 0, 0);
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(41, 181, 10, 0.652);
+  }
+
+  
