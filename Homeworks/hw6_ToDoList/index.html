@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List Application</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/vue@3.4.9/dist/vue.global.js"></script>
+    <script src="app.js" defer></script>
+</head>
+<body>
+    <div id="app" class="container">
+        <header>
+            <h1>To-Do List</h1>
+            <form @submit.prevent="addTask">
+                <input v-model="newTask.title" type="text" placeholder="Task title" required>
+                <input v-model="newTask.description" type="text" placeholder="Task description">
+                <button type="submit">Add Task</button>
+            </form>
+        </header>
+        <main>
+            <div class="filters">
+                <button @click="filter = 'all'" :class="{ active: filter === 'all' }">All</button>
+                <button @click="filter = 'active'" :class="{ active: filter === 'active' }">Active</button>
+                <button @click="filter = 'completed'" :class="{ active: filter === 'completed' }">Completed</button>
+                <div class="sort">
+                    <button @click="showSortOptions = !showSortOptions" :class="{ active: showSortOptions }">{{ sortLabel }}</button>
+                    <div v-if="showSortOptions" class="sort-options">
+                        <button @click="setSortOrder('asc')">New to Old</button>
+                        <button @click="setSortOrder('desc')">Old to New</button>
+                    </div>
+                </div>
+            </div>
+            <p v-if="sortOrder !== null">Sorted: {{ sortOrderLabel }}</p>
+            <ul>
+                <li v-for="task in filteredTasks" :key="task.id" :class="{ completed: task.completed }">
+                    <div>
+                        <input type="checkbox" v-model="task.completed">
+                        <span class="title" v-if="!task.editing">{{ task.title }}</span>
+                        <input class="title" v-if="task.editing" v-model="task.title">
+                        <div class="actions">
+                            <button @click="editTask(task)">{{ task.editing ? 'Save' : 'Edit' }}</button>
+                            <button @click="deleteTask(task.id)">Delete</button>
+                        </div>
+                    </div>
+                    <span class="description" v-if="!task.editing">{{ 'Description: ' + task.description }}</span>
+                    <input class="description" v-if="task.editing" v-model="task.description" type="text" placeholder="Task description">
+                </li>
+            </ul>
+        </main>
+    </div>
+</body>
+</html>

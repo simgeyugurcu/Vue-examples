@@ -1,0 +1,153 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #e7cec9;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    background-color: #f6e4dd;
+    padding: 20px;
+    box-shadow: 0 2px 20px rgba(179, 107, 107, 0.693);
+    width: 30%;
+    max-width: 800px;
+}
+
+header h1 {
+    text-align: center;
+    color: #e1bfbf;
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+form input[type="text"] {
+    background-color: #f6e4dd;
+    padding: 10px;
+    border: 3px solid #e1bfbf;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+form button {
+    padding: 10px 20px;
+    background-color: #e1bfbf;
+    border: none;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+/* Filtreler(all,active,completed) ve sort stili */
+.filters, .sort {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+    margin-bottom: 20px;
+}
+
+.filters button, .sort button {
+    background-color: #f7e9e3;
+    border: 1px solid #ddd;
+    color: #333;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+/* Aktif filtre ve sort düğmeleri stilleri*/
+.filters button.active, .sort button.active {
+    background-color: #ffb5a7;
+    color: #fff;
+}
+
+.sort {
+    position: relative;
+    margin-top: 20px;
+}
+
+.sort-options {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #e7cec9;
+    border-radius: 4px;
+    padding: 3px;
+    z-index: 100;
+}
+
+.sort-options button {
+    margin: 5px 0;
+    cursor: pointer;
+    padding: 8px 16px;
+    font-size: 14px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    border-bottom: 1px solid #e1bfbf;   /* Alt çizgi */
+}
+
+li.completed > div:first-child span {
+    text-decoration: line-through;    /* Tamamlanan görevlerin üzerini çizme*/
+}
+
+li div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+li div input[type="checkbox"] {
+    margin-right: 30px;
+}
+
+li div span.title,
+li div input[type="text"].title {
+    flex: 1;
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+li div span.description,
+li div input[type="text"].description {
+    flex: 1;
+    font-family: 'Arial', sans-serif;
+    font-size: 14px; 
+    font-style: italic;
+}
+
+li .actions {
+    display: flex;
+    gap: 10px;
+}
+
+li .actions button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #f18873;
+}
+/* Düğme üzerine gelindiğinde renk değişimi */
+li .actions button:hover {
+    color: #f18873;
+}
