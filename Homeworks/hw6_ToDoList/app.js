@@ -1,8 +1,8 @@
 const app = Vue.createApp({
     data() {
-        const storedTasks = localStorage.getItem('tasks');           // LocalStorage'dan kaydedilmiş görevleri alır veya boş bir dizi oluşturur
+        const storedTasks = localStorage.getItem('tasks'); // LocalStorage'dan kaydedilmiş görevleri alır veya boş bir dizi oluşturur
         const tasks = storedTasks ? JSON.parse(storedTasks) : [];
-        const nextId = tasks.length > 0 ? tasks[tasks.length - 1].id + 1 : 1;            // Sonraki görevin ID'sini belirler
+        const nextId = tasks.length > 0 ? tasks[tasks.length - 1].id + 1 : 1; // Sonraki görevin ID'sini belirler
 
         return {
             newTask: {
@@ -13,8 +13,13 @@ const app = Vue.createApp({
             filter: 'all',
             sortOrder: null,
             showSortOptions: false,
-            sortLabel: 'Sort by Date', 
-            sortedBy: null 
+            sortLabel: 'Sort by Date',
+            sortedBy: null,
+            filters: [ // Filtre seçeneklerini belirten liste
+                { label: 'All', value: 'all' },
+                { label: 'Active', value: 'active' },
+                { label: 'Completed', value: 'completed' }
+            ]
         };
     },
     computed: {
@@ -37,7 +42,7 @@ const app = Vue.createApp({
                 return filtered;
             }
         },
-        sortOrderLabel() {
+        sortOrderLabel() { // Sıralama etiketini belirler
             if (this.sortOrder === 'asc') {
                 return 'New to Old';
             } else if (this.sortOrder === 'desc') {
@@ -51,7 +56,7 @@ const app = Vue.createApp({
         addTask() {
             if (this.newTask.title.trim() === '') return;
 
-            const newTask = {                     // Yeni görevin ID'sini belirler
+            const newTask = { // Yeni görevin ID'sini belirler
                 id: this.tasks.length > 0 ? this.tasks[this.tasks.length - 1].id + 1 : 1,
                 title: this.newTask.title.trim(),
                 description: this.newTask.description.trim(),
@@ -64,22 +69,22 @@ const app = Vue.createApp({
             this.newTask.description = '';
             this.saveTasks();
         },
-        deleteTask(id) {
+        deleteTask(id) { // Görevi siler
             this.tasks = this.tasks.filter(task => task.id !== id);
             this.saveTasks();
         },
-        editTask(task) {
+        editTask(task) { // Görevi düzenleme moduna geçer veya kaydeder
             task.editing = !task.editing;
             if (!task.editing) {
                 this.saveTasks();
             }
         },
-        setSortOrder(order) {
+        setSortOrder(order) { // Sıralama düzenini belirler
             this.sortOrder = order;
             this.showSortOptions = false;
             this.sortLabel = 'Sort by Date';
         },
-        saveTasks() {                 // Görevleri LocalStorage'a kaydeder
+        saveTasks() { // Görevleri LocalStorage'a kaydeder
             localStorage.setItem('tasks', JSON.stringify(this.tasks));
         }
     }

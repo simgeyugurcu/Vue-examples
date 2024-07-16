@@ -18,11 +18,14 @@
                 <button type="submit">Add Task</button>
             </form>
         </header>
-        <main>
+        <div>
             <div class="filters">
-                <button @click="filter = 'all'" :class="{ active: filter === 'all' }">All</button>
-                <button @click="filter = 'active'" :class="{ active: filter === 'active' }">Active</button>
-                <button @click="filter = 'completed'" :class="{ active: filter === 'completed' }">Completed</button>
+                <!-- Filtre butonlarını liste üzerinden oluşturur -->
+                <button v-for="filterOption in filters" :key="filterOption.value" 
+                        @click="filter = filterOption.value" 
+                        :class="{ active: filter === filterOption.value }">
+                    {{ filterOption.label }}
+                </button>
                 <div class="sort">
                     <button @click="showSortOptions = !showSortOptions" :class="{ active: showSortOptions }">{{ sortLabel }}</button>
                     <div v-if="showSortOptions" class="sort-options">
@@ -47,7 +50,7 @@
                     <input class="description" v-if="task.editing" v-model="task.description" type="text" placeholder="Task description">
                 </li>
             </ul>
-        </main>
+        </div>
     </div>
 </body>
 </html>
